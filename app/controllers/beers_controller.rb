@@ -8,6 +8,8 @@ class BeersController < ApplicationController
         beer = Beer.create(beer_params)
         if beer.valid?
             render json: beer
+        else 
+            render json: beer.errors, status: 422
         end
 
     end
@@ -17,6 +19,8 @@ class BeersController < ApplicationController
         beer.update(beer_params)
         if beer.valid?
             render json: beer
+        else 
+            render json: beer.errors, status: 422
         end
     end
 
