@@ -27,7 +27,9 @@ class BeersController < ApplicationController
     def destroy
         beer = Beer.find(params[:id])
         beer.destroy
-        render json: beer
+        if beer.valid?
+            render json: beer
+        end
     end
 
     private
